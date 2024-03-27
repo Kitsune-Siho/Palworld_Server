@@ -47,8 +47,11 @@ case "$1" in
     stop)
         stop_palworld
         ;;
+    backup)
+        backup_palworld
+        ;;
     *)
-        echo "Unknown Command. select this one: $0 {start|stop}"
+        echo "Unknown Command. select this one: $0 {start|stop|backup}"
         exit 1
         ;;
 esac

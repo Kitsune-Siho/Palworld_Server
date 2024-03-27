@@ -1,4 +1,4 @@
-# Palworld_Server_manager script
+# PSM(Palworld Server manager) script
 
 여기저기에서 참조했는데, 링크를 못찾아서 출처는 나중에 쓰는거로 하고...
 간단히말해서 터미널로 켜고 끌수 있는 스크립트입니다.

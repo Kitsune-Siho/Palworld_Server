@@ -1,20 +1,20 @@
 #!/bin/bash
 
-# display the current time in KST
+# display the Current time in KST
 echo_ct_kst() {
     echo "TIME: $(TZ='Asia/Seoul' date +'%y-%m-%d-%H-%M-%S')"
 }
 
-# start the palworld-server Docker container
+# Start Palworld server docker container
 start_palworld() {
     echo "Starting Palworld Server..."
     echo_ct_kst
     sudo docker start palworld-server
     sleep 15
-    echo "Palworld Server start successfully!"
+    echo "Palworld Server start successfully."
 }
 
-# Function to stop the palworld-server Docker container
+# Stop Palworld server docker container
 stop_palworld() {
     echo "Stopping Palworld Server..."
     echo_ct_kst
@@ -25,8 +25,18 @@ stop_palworld() {
     echo "Server will shut down after 30 seconds."
     sleep 31
     sudo docker stop palworld-server
-    echo "Palworld Server stop successfully!"
+    echo "Palworld Server stop successfully."
+}
+
+# Backup Palworld save files
+backup_palworld() {
     echo_ct_kst
+    echo "Archiving Palworld Server save files..."
+    sleep 5
+    TIMESTAMP=$(TZ='Asia/Seoul' date +'%y-%m-%d-%H-%M-%S')
+    cd /home/user/Server/PalWorld/serverfile/palworld/Pal && zip -r /home/user/Server/PalWorld/backups/${TIMESTAMP}-palworld-saved.zip Saved/
+    echo "Archiving Completed."
+
 }
 
 # Main logic to call functions based on passed argument
